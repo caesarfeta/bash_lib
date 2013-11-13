@@ -11,3 +11,5 @@
 ##      $SCRIPT_DIR/../sibling/path
 ##-------------------------------------------------------------
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# This needs to be copied to each script... unfortunately
+# I need to figure out how to get the name of the script the user actually runs

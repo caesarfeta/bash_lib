@@ -3,11 +3,14 @@
 ### How To Use
 Clone this repository into the desired directory
 
-Add the following bit of code to your BASH scripts replacing $DD with the desired directory
+Add the following bit of code to your BASH scripts after your variable definitions replacing $DIR with the path to this library
 
-	for f in $(ls $DD/bash\_lib/lib/)
-		do source $DD/bash\_lib/lib/$f
+	for f in $(ls $DIR/lib/)
+		do source $DIR/lib/$f
 	done
-	
+
+### snippets.sh
+This file contains useful snippets of BASH code that aren't stand-alone functions but can be copy and pasted into your scripts as needed
+
 ### Available Functions
 	Coming soon...
