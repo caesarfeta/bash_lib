@@ -1,0 +1,54 @@
+#!/bin/bash
+# See github.com/caesarfeta/bash_lib
+
+#-------------------------------------------------------------
+#  Configuration
+#------------------------------------------------------------- 
+APP_HOME="/var/www"
+LIB_HOME="/usr/local"
+BASH_LIB="$LIB_HOME/bash_lib/lib"
+
+#-------------------------------------------------------------
+#  Import BASH library
+#-------------------------------------------------------------
+for f in $(ls $BASH_LIB)
+	do source $BASH_LIB/$f
+done
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+#-------------------------------------------------------------
+#  'Sub' Subroutines
+#-------------------------------------------------------------
+#function helper(){}
+
+#-------------------------------------------------------------
+#  Standard Subroutines
+#-------------------------------------------------------------
+function install() {
+	echo '# Install service'
+}
+
+function uninstall() {
+	echo '# Uninstall service'
+}
+
+function start() {
+	echo '# Starting service'
+}
+
+function stop() {
+	echo '# Stopping service'
+}
+
+#-------------------------------------------------------------
+#   Commands
+#-------------------------------------------------------------
+if [ "$1" == "install" ]
+	then install
+elif [ "$1" == "uninstall" ]
+	then uninstall
+elif [ "$1" == "start" ]
+	then start
+elif [ "$1" == "stop" ]
+	then stop
+fi
