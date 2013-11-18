@@ -25,11 +25,11 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 #  Standard Subroutines
 #-------------------------------------------------------------
 function install() {
-	echo '# Install service'
+	echo '# Installing service'
 }
 
 function uninstall() {
-	echo '# Uninstall service'
+	echo '# Uninstalling service'
 }
 
 function start() {
@@ -38,6 +38,10 @@ function start() {
 
 function stop() {
 	echo '# Stopping service'
+}
+
+function restart() {
+	echo '# Restarting service'
 }
 
 #-------------------------------------------------------------
@@ -51,4 +55,6 @@ elif [ "$1" == "start" ]
 	then start
 elif [ "$1" == "stop" ]
 	then stop
+elif [ "$1" == "restart" ]
+	then restart
 fi
