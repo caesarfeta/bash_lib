@@ -1,10 +1,5 @@
 #!/bin/bash
 
-#-------------------------------------------------------------
-#  Import config
-#-------------------------------------------------------------
-source /tmp/bashlibvars
-
 ##-------------------------------------------------------------
 ##  writeConfig() -- Simple templating
 ##
@@ -16,6 +11,7 @@ source /tmp/bashlibvars
 ##  Be careful the output file gets totally overwritten.
 ##-------------------------------------------------------------
 function writeConfig() {
+	source /tmp/bashlibvars
 	> $2  # Clobber output file
 	while read line ; do
 	    while [[ "$line" =~ (\$\{[a-zA-Z_][a-zA-Z_0-9]*\}) ]] ; do
@@ -39,6 +35,7 @@ function writeConfig() {
 ##  @param {string} The path to the template file
 ##-------------------------------------------------------------
 function writeManual() {
+	source /tmp/bashlibvars
 	while read line ; do
 	    while [[ "$line" =~ (\$\{*[a-zA-Z_][a-zA-Z_0-9]*\}*) ]] ; do
 	        LHS=${BASH_REMATCH[1]}
