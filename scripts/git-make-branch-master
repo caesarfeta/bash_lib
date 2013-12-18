@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# Adam Tavares
+# Dec 18, 2013
+#
+# Usage: Add it to your PATH and `git-make-branch-master branch`.
+#
+# Makes a branch the master
+#
+BRANCH=$(echo "$1" | sed 's/\/$//'); shift
+exit_err() {
+  [ $# -gt 0 ] && echo "fatal: $*" 1>&2
+  exit 1
+}
+git checkout $BRANCH
+git merge --strategy=ours $BRANCH
+git checkout master
+git merge $BRANCH
