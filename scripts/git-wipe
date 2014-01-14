@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# Adam Tavares
+# Dec 18, 2013
+#
+# Usage: Add it to your PATH and `git-make-branch-master branch`.
+#
+# Makes a branch the master
+#
+git fetch
+git reset --hard origin/master
