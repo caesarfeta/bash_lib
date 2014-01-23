@@ -27,13 +27,17 @@ Script boilerplates.
 Non-sensitve bash config.  
 
 ## gitconfigPlus
-Git specific aliases.
+Git specific command aliases.
 Include it in your git config file.
-This only works if you have Git 1.7+
+This only works if you have Git 1.7.10+
 Add these lines to  ~/.gitconfig
 
 	[include]
-	    path = ~/lib/bash_lib/gitConfigPlus
+	    path = ~/lib/bash_lib/gitconfigPlus
+
+If you have an older version of Git that doesn't support includes you can always do this.
+
+	cat ~/lib/bash_lib/gitconfigPlus >> ~/.gitconfig
 
 ## snippets.txt
 Useful snippets of BASH code that aren't stand-alone functions but can be copied and pasted into scripts.
