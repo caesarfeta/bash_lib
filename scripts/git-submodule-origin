@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# Adam Tavares
+# 2014-01-27
+#
+# Usage: Add it to your PATH and `git-submodule-origin`.
+#
+# Get the hash of the latest commit in github
+#
+for x in `cat .gitmodules | grep "[ \t]*url"`; do
+	url=$( echo $x | grep http )
+	if [ $url ]; then
+		echo $url
+		user=`basename \`dirname "$url"\``
+		repo=$( basename $url )
+		curl -s https://api.github.com/repos/$user/$repo/git/refs/heads/master | grep sha
+	fi
+done
