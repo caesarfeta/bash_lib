@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# Adam Tavares
+# 2014-01-27
+#
+# Usage: Add it to your PATH and `git-super-clone project`.
+#
+
+PROJ=$(echo "$1" | sed 's/\/$//'); shift
+exit_err() {
+  [ $# -gt 0 ] && echo "fatal: $*" 1>&2
+  exit 1
+}
+
+USER=$(git config --global user.name); shift
+if [ -z "$USER" ]; then
+	exit_err "no user set"
+fi
+if [ -z "$PROJ" ]; then
+	exit_err "no project specified"
+fi
+
+git clone http://github.com/$USER/$PROJ
+cd $PROJ
+git submodule update --init --recursive
+

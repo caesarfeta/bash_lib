@@ -12,6 +12,11 @@ exit_err() {
   [ $# -gt 0 ] && echo "fatal: $*" 1>&2
   exit 1
 }
+
+if [ -z "$BRANCH" ]; then
+	exit_err "No branch name specified"
+fi
+
 git checkout $BRANCH
 git merge --strategy=ours $BRANCH
 git checkout master

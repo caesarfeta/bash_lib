@@ -3,9 +3,9 @@
 # Adam Tavares
 # Dec 18, 2013
 #
-# Usage: Add it to your PATH and `git-make-branch-master branch`.
+# Usage: Add it to your PATH and `git-wipe`.
 #
-# Makes a branch the master
+# Wipe the current Git repository clean resetting everything back to state in origin.
 #
 git fetch
 git reset --hard origin/master
