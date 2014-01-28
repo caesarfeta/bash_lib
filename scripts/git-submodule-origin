@@ -8,7 +8,7 @@
 # Get the hash of the latest commits in github and compare that with the local repository.
 #
 echo "# Submodule Github Master SHAs"
-for x in `cat .gitmodules | grep "[ \t]*url"`; do
+for x in `cat .gitmodules | grep "[ \t]*url" | sort`; do
 	url=$( echo $x | grep http )
 	if [ $url ]; then
 		user=`basename \`dirname "$url"\``
