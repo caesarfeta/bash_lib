@@ -5,14 +5,18 @@
 #
 # Usage: Add it to your PATH and `git-submodule-origin`.
 #
-# Get the hash of the latest commit in github
+# Get the hash of the latest commits in github and compare that with the local repository.
 #
+echo "# Submodule Github Master SHAs"
 for x in `cat .gitmodules | grep "[ \t]*url"`; do
 	url=$( echo $x | grep http )
 	if [ $url ]; then
-		echo $url
 		user=`basename \`dirname "$url"\``
 		repo=$( basename $url )
-		curl -s https://api.github.com/repos/$user/$repo/git/refs/heads/master | grep sha
+		sha=$( curl -s https://api.github.com/repos/$user/$repo/git/refs/heads/master | grep sha | grep -o '[a-zA-Z0-9]\{40\}' )
+		echo " $sha $url"
 	fi
 done
+echo "\n"
+echo "# Local Submodule SHAs"
+git submodule status
