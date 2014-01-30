@@ -9,7 +9,7 @@ PATH=$PATH:~/lib/bash_lib/scripts
 # Aliases
 alias fsizes='du -a | sort -nr'
 alias fstring='grep -rl'
-alias hosts='cat ~/.ssh/config | grep "Host\ "| sed "s/Host //g"'
+alias hosts='cat ~/.ssh/config | grep "^Host\ "| sed "s/Host //g"'
 alias hist='cat ~/.bash_history | grep'
 alias aliases='cat ~/lib/bash_lib/profile | grep alias | grep -v aliases'
 alias scripts='ls -1 ~/lib/bash_lib/scripts'
