@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Adam Tavares
+# 2014-01-30
+#
+# Usage: tohex 225 -- tohex [decimal]
+#
+# Converts a list of decimals to hexadecimal
+#
+for var
+do
+	out=$(echo "obase=16; $var"|bc)
+	printf "%s" $out
+done
+echo ""
