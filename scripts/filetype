@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Adam Tavares
+# 2014-02-08
+#
+# Usage: filetype path/to/file
+#
+# Return just the file-type.
+#
+echo $(file $1 |tail -1|cut -d' ' -f2)
