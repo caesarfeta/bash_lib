@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# Adam Tavares
+# 2014-02-10
+#
+# Usage: getext path/to/file
+#
+# Return just the file extension
+#
+file=$(basename $1)
+echo $file | awk -F\. '{print $2}'
