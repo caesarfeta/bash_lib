@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+# Adam Tavares
+# 2014-03-28
+#
+# Replace all string occurences in text files in directory
+#
+# Usage: list-replace /path/to/list.txt /directory/to/change
+#
+# List is a plain text file.
+# Two columns.
+# Tab separated.
+# First column is the search text
+# Second column is the replacement text.
+#
+while read line
+do
+	l=$line
+	#-------------------------------------------------------------
+	#  Split the lines
+	#-------------------------------------------------------------
+	st=$( echo $l | awk {'print $1'} )
+	rt=$( echo $l | awk {'print $2'} )
+	#-------------------------------------------------------------
+	#  Escape period
+	#-------------------------------------------------------------
+	s="${st/\./\\.}"
+	r="${rt/\./\\.}"
+	#-------------------------------------------------------------
+	#  Replace all matches in the directory
+	#-------------------------------------------------------------
+	grep -rl '$s' $2 | xargs sed -i 's/$s/$r/g';
+done < $1
