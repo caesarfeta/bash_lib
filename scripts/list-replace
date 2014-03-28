@@ -29,5 +29,5 @@ do
 	#-------------------------------------------------------------
 	#  Replace all matches in the directory
 	#-------------------------------------------------------------
-	grep -rl '$s' $2 | xargs sed -i 's/$s/$r/g';
+	grep -rl --exclude=*.{png,jpg,gif} --exclude-dir=.git '$s' $2 | xargs sed -i 's/$s/$r/g';
 done < $1
