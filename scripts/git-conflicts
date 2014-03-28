@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Adam Tavares
+# March 17, 2014
+#
+# Usage: Add it to your PATH and `git-conflicts`.
+#
+# Find all files with conflicts
+#
+git diff --name-only --diff-filter=U
