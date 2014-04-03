@@ -9,5 +9,5 @@
 # Makes currently checked-out detached head the master branch
 #
 git branch temp-detached-branch-12345
-git-make-branch-master
+git-make-branch-master temp-detached-branch-12345
 git branch -d temp-detached-branch-12345
