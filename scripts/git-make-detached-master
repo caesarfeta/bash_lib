@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# Adam Tavares
+# April 3, 2014
+#
+# Usage: Add this script's parent directory to your PATH and `git-make-detached-master` 
+# when in a git project directory of course.
+#
+# Makes currently checked-out detached head the master branch
+#
+git branch temp-detached-branch-12345
+git-make-branch-master
+git branch -d temp-detached-branch-12345
