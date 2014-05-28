@@ -9,7 +9,7 @@ Add the following line to ~/.profile.
 	source ~/lib/bash_lib/profile
 
 ## ./lib
-Reusable bash functions helpful when writing your own scripts.
+Reusable BASH functions helpful when writing your own scripts.
 
 Add the following to your BASH scripts after your variable definitions replacing $DIR with the desired directory.
 
@@ -24,7 +24,7 @@ Handy scripts I use for coding / project management.
 Script boilerplates.
 
 ## profile
-Non-sensitve bash config.  
+Non-sensitve BASH config.  
 
 ## gitconfigPlus
 Git specific command aliases.
