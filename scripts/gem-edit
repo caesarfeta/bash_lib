@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# Adam Tavares
+# 2014-06-30
+#
+# Usage: gem-edit gemname
+#
+# Open a gem
+#
+gem=$(echo "$1" | sed 's/\/$//'); shift
+file=$( gem which ${gem} );
+mate `dirname ${file}`;
