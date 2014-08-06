@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# Adam Tavares
+# 2014-08-06
+#
+# Usage: giffy sketch_name
+#
+# Used with gif_eyecandy.  
+# Requires ImageMagick.
+# Will build an animated gif file from the output in /var/www/gif_eyecandy/tmp
+gif=$(echo "$1" | sed 's/\/$//'); shift
+convert -delay 3 -loop 0 f*.gif /var/www/gif_eyecandy/gifs/"$gif".gif
