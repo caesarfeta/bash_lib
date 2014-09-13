@@ -9,9 +9,12 @@
 # Requires ImageMagick.
 # Will build an animated gif file from the output in /var/www/gif_eyecandy/tmp
 
-frames="/var/www/gif_eyecandy/tmp/f*.gif"
-name=$(echo "$1" | sed 's/\/$//'); shift
-gif="/var/www/gif_eyecandy/gifs/$name.gif"
+dir="/var/www/gif_eyecandy"
+frames="$dir/tmp/f*.gif"
+last=`find $dir | egrep -e "[0-9].gif" | sed 's/[^0-9]//g'| sort | tail -1`
+name=$((last+1))
+echo $name
+gif="$dir/gifs/$name.gif"
 
 if [ name == "new" ]; then
 	echo "Add new feature, Adam"
@@ -20,4 +23,8 @@ elif [ name == "clean" ]; then
 else
 	convert -delay 3 -loop 0 $frames $gif
 	rm $frames
+	pushd $dir
+	git add .
+	git commit -m "Added $name.gif"
+	popd
 fi
